@@ -11,6 +11,7 @@ class PrintEditionItem {
   fix() {
     this.state *= 1.5;
   }
+
   set state(value){
     if (value < 0) {
       this._state = 0;
@@ -76,12 +77,14 @@ class PrintEditionItem {
     }
 
     findBookBy(type, value) {
-      let result = this.books.find(book => book[type] === value);
-      if (result) {
-        return result;
-      } else {
-        return null;
-      }
+//      let result = this.books.find(book => book[type] === value);
+//      if (result) {
+//        return result;
+//      } else {
+//        return null;
+//      }
+//      красивее и короче:
+        return this.books.find(book => book[type] === value) || null;
     }
 
     giveBookByName(bookName) {
